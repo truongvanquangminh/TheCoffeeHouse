@@ -35,6 +35,7 @@ public class PhoBienFragment extends Fragment {
         addEvents();
         return r;
     }
+
     private void fakeData() {
         spadt.add(new DoUong(R.drawable.cafedenda, "Cà phê đen đá", "15.000"));
         spadt.add(new DoUong(R.drawable.caphesua, "Cà phê sữa đá", "17.000"));

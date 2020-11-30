@@ -6,13 +6,6 @@
     tools:context=".tablayout.DoAnFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="#000"
-        android:textSize="30sp"
-        android:textStyle="italic"
-        android:text="Chưa có đồ ăn"/>
+    <include layout="@layout/dathang"/>
 
 </FrameLayout>
