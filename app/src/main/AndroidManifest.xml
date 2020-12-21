@@ -33,7 +33,6 @@
         <!-- android:name="com.google.android.maps.v2.API_KEY" -->
         <!-- android:value="AIzaSyDuOLSzz9oeploI6-1T9aEbM0CzxV_R3Iw" /> -->
         <activity android:name=".Information" />
-        <activity android:name=".MapsActivity" />
         <activity android:name=".Login.SignUp_Activity" />
         <activity android:name=".Login.SignIn_Activity" />
         <activity android:name=".Login.Login" />

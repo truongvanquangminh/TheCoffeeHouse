@@ -19,7 +19,7 @@
             android:layout_marginLeft="15dp"
 
             android:layout_marginTop="2dp"
-            app:srcCompat="@drawable/imge1" />
+            app:srcCompat="@drawable/boy" />
 
         <TextView
             android:id="@+id/textView"

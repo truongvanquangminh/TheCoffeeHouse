@@ -18,7 +18,7 @@
         android:layout_height="160dp"
         android:layout_marginLeft="115dp"
         android:layout_marginTop="80dp"
-        android:src="@drawable/imge1" />
+        android:src="@drawable/boy" />
 
     <TextView
         android:id="@+id/textView3"
