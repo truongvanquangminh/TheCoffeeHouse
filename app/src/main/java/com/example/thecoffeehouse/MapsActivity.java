@@ -42,5 +42,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera
         LatLng dn = new LatLng(16.047079, 108.206230);
         mMap.addMarker(new MarkerOptions().title("Đà Nẵng").snippet("The most populous city in Đà Nẵng.").position(dn));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(dn));
     }
 }

@@ -159,6 +159,7 @@
                             android:textStyle="bold" />
 
                         <Button
+                            android:id="@+id/buttonchuyen"
                             android:layout_width="140dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"

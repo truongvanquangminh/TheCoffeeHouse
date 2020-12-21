@@ -7,13 +7,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.thecoffeehouse.Coupon;
 import com.example.thecoffeehouse.Information;
 import com.example.thecoffeehouse.Notify;
 import com.example.thecoffeehouse.R;
+import com.example.thecoffeehouse.Tichdiem;
 
 public class Tintuc extends Fragment implements View.OnClickListener {
 
@@ -26,7 +29,6 @@ public class Tintuc extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
 
         View root = inflater.inflate(R.layout.fragment_navigation_tintuc, container, false);
-
 
         img1 = root.findViewById(R.id.imageNotify);
         img1.setOnClickListener(this);
@@ -87,13 +89,15 @@ public class Tintuc extends Fragment implements View.OnClickListener {
             startActivity(dsp);
         }
         if (v.getId() == R.id.relativeTichdiem) {
-            Toast.makeText(this.getActivity(), "Tích điểm", Toast.LENGTH_SHORT).show();
+            Intent dsp = new Intent(Tintuc.this.getActivity(), Tichdiem.class);
+            startActivity(dsp);
         }
         if (v.getId() == R.id.relativeDathang) {
             Toast.makeText(this.getActivity(), "Đặt hàng ", Toast.LENGTH_SHORT).show();
         }
         if (v.getId() == R.id.relativeCoupon) {
-            Toast.makeText(this.getActivity(), "Coupon", Toast.LENGTH_SHORT).show();
+            Intent dsp = new Intent(Tintuc.this.getActivity(), Coupon.class);
+            startActivity(dsp);
         }
     }
 
