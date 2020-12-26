@@ -2,6 +2,7 @@ package com.example.thecoffeehouse.tablayout;
 
 import android.animation.PropertyValuesHolder;
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,37 +15,42 @@ import android.widget.GridView;
 
 import com.example.thecoffeehouse.R;
 import com.example.thecoffeehouse.bottomNavigation.Dathang;
+import com.example.thecoffeehouse.database.database;
 import com.example.thecoffeehouse.model_adapter.DoUong;
 import com.example.thecoffeehouse.model_adapter.SanPhamAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PhoBienFragment extends Fragment {
 
     private GridView gvmon;
     private SanPhamAdapter spadt;
 
+    Context context;
+    private List<DoUong> phobienData;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        context = getActivity();
+
         // Inflate the layout for this fragment
         View r = inflater.inflate(R.layout.fragment_pho_bien, container, false);
         gvmon = r.findViewById(R.id.gv_mon);
-        spadt = new SanPhamAdapter(PhoBienFragment.this.getActivity(), R.layout.item);
+        database db = new database(getActivity());
+        db.createDefaultsanphamIfNeed();
+        phobienData = new ArrayList<DoUong>();
+        phobienData = db.getAlldouong();
+        spadt = new SanPhamAdapter(getActivity(), R.layout.item, phobienData);
         gvmon.setAdapter(spadt);
         registerForContextMenu(gvmon);
-        fakeData();
         addEvents();
         return r;
     }
 
     private void fakeData() {
-        spadt.add(new DoUong(R.drawable.cafedenda, "Cà phê đen đá", "15.000"));
-        spadt.add(new DoUong(R.drawable.caphesua, "Cà phê sữa đá", "17.000"));
-        spadt.add(new DoUong(R.drawable.nuocepcam, "Nước ép cam", "20.000"));
-        spadt.add(new DoUong(R.drawable.chanhday, "Nước ép chanh dây", "17.000"));
-        spadt.add(new DoUong(R.drawable.bacxiu1, "Bạc xỉu", "15.000"));
-        spadt.add(new DoUong(R.drawable.trasuaday, "Trà sữa dâu tây", "17.000"));
-        spadt.add(new DoUong(R.drawable.tradao, "Trà đào", "20.000"));
-        spadt.add(new DoUong(R.drawable.kemdau, "Kem dâu tươi", "15.000"));
 
     }
 

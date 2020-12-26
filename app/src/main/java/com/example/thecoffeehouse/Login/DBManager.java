@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 public class DBManager {
-
     private String TAG = "DBManager";
     SQLiteDatabase database;
 
@@ -20,17 +19,14 @@ public class DBManager {
     public void addAccount(Account account) {
         ContentValues values = new ContentValues();
         values.put(CreateDatabase.NAME, account.getName());
-
         values.put(CreateDatabase.EMAIL, account.getEmail());
         values.put(CreateDatabase.PASS, account.getPass());
-
         database.insert(CreateDatabase.TABLE_NAME, null, values);
         database.close();
     }
-//        long kiemtra = database.insert(CreateDatabase.TABLE_NAME,null,values);
+
+    //        long kiemtra = database.insert(CreateDatabase.TABLE_NAME,null,values);
 //        return kiemtra;
-
-
     public boolean KiemTraDangNhap(String ten, String matkhau) {
         String truyvan = "SELECT * FROM " + CreateDatabase.TABLE_NAME + " WHERE " + CreateDatabase.EMAIL + " = '" + ten
                 + "' AND " + CreateDatabase.PASS + " = '" + matkhau + "'";

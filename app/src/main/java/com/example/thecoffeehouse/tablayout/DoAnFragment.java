@@ -12,32 +12,39 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.thecoffeehouse.R;
+import com.example.thecoffeehouse.database.database;
 import com.example.thecoffeehouse.model_adapter.DoUong;
 import com.example.thecoffeehouse.model_adapter.SanPhamAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DoAnFragment extends Fragment {
 
     private GridView gvmon;
     private SanPhamAdapter spadt;
+
+    private List<DoUong> doanData;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View r = inflater.inflate(R.layout.fragment_do_an, container, false);
-
         gvmon = r.findViewById(R.id.gv_mon);
-        spadt = new SanPhamAdapter(DoAnFragment.this.getActivity(), R.layout.item);
+
+        database db = new database(getActivity());
+        db.createDefaultsanphamIfNeed();
+        doanData = new ArrayList<DoUong>();
+        doanData = db.getAlldoan();
+
+        spadt = new SanPhamAdapter(getActivity(), R.layout.item, doanData);
         gvmon.setAdapter(spadt);
         registerForContextMenu(gvmon);
-        fakeData();
         addEvents();
         return r;
     }
-    private void fakeData() {
-        spadt.add(new DoUong(R.drawable.maccasocola, "Macca Phủ Socola", "45.000"));
-        spadt.add(new DoUong(R.drawable.mitsay, "Mít sấy", "20.000"));
-        spadt.add(new DoUong(R.drawable.bonglantrungmuoi, "Bông lan trứng muối", "29.000"));
-    }
+
     private void addEvents() {
         gvmon.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -4,18 +4,43 @@ import android.widget.ImageView;
 
 import java.io.Serializable;
 
-public class DoUong implements Serializable {
-    private int hinh;
+public class DoUong {
+    private int id;
+    private String loaisp;
+    private String hinh;
     private String ten;
     private String gia;
 
-    public int getHinh() {
+    public DoUong(int id, String loaisp, String ten, String gia, String hinh) {
+        this.id = id;
+        this.loaisp = loaisp;
+        this.ten = ten;
+        this.gia = gia;
+        this.hinh = hinh;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getLoaisp() {
+        return loaisp;
+    }
+
+    public void setLoaisp(String loaisp) {
+        this.loaisp = loaisp;
+    }
+
+    public String getHinh() {
         return hinh;
     }
 
-    public ImageView setHinh(int hinh) {
+    public void setHinh(String hinh) {
         this.hinh = hinh;
-        return null;
     }
 
     public String getTen() {
@@ -32,14 +57,5 @@ public class DoUong implements Serializable {
 
     public void setGia(String gia) {
         this.gia = gia;
-    }
-
-    public DoUong(int hinh, String ten, String gia) {
-        this.hinh = hinh;
-        this.ten = ten;
-        this.gia = gia;
-    }
-
-    public DoUong() {
     }
 }

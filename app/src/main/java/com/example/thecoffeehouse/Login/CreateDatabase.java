@@ -5,7 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class CreateDatabase extends SQLiteOpenHelper {
-
     public static final String DATABASE_NAME = "account_list";
     public static String TABLE_NAME = "account";
     public static String ID = "id";
@@ -16,7 +15,6 @@ public class CreateDatabase extends SQLiteOpenHelper {
     public Context context;
 
     public CreateDatabase(Context context) {
-
         super(context, DATABASE_NAME, null, 1);
     }
 
@@ -32,7 +30,6 @@ public class CreateDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 
     public SQLiteDatabase open() {
